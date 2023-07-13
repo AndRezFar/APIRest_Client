@@ -12,52 +12,51 @@ import lombok.NoArgsConstructor;
 @Entity(name = "client")
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+//@EqualsAndHashCode(of = "id")
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Client {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_client;
 
-    private String nome;
-    private String data_nascimento;
+    private String name;
+    private String born_date;
     private String cpf;
-    private String telefone1;
-    private String telefone2;
+    private String phone1;
+    private String phone2;
     private String email;
-    private String senha;
+    private String password;
 
     public Client(ClientRequestDTO data){
-        this.nome = data.nome();
-        this.data_nascimento = data.data_nascimento();
+        this.name = data.name();
+        this.born_date = data.born_date();
         this.cpf = data.cpf();
-        this.telefone1 = data.telefone1();
+        this.phone1 = data.phone1();
         this.email = data.email();
-        this.senha = data.senha();
+        this.password = data.password();
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setBorn_date(String born_date) {
+        this.born_date = born_date;
     }
 
-    public void setTelefone1(String telefone1) {
-        this.telefone1 = telefone1;
+    public void setPhone1(String phone1) {
+        this.phone1 = phone1;
     }
 
-    public void setTelefone2(String telefone2) {
-        this.telefone2 = telefone2;
+    public void setPhone2(String phone2) {
+        this.phone2 = phone2;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

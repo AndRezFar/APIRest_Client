@@ -2,7 +2,7 @@ package br.com.blpersonalizados.cliente.controller;
 
 
 import br.com.blpersonalizados.cliente.client.Client;
-import br.com.blpersonalizados.cliente.client.ClientRepository;
+import br.com.blpersonalizados.cliente.repository.ClientRepository;
 import br.com.blpersonalizados.cliente.client.ClientRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/clients")
-public class clientController {
+public class ClientController {
 
     @Autowired
     private ClientRepository clientRepository;
@@ -40,12 +40,12 @@ public class clientController {
 
     }
 
-    @PutMapping("/{id}/nome")
+    @PutMapping("/{id}/name")
     public ResponseEntity<Client> updateNomeClient(@PathVariable Long id, @RequestBody Client client){
         Client existingClient = clientRepository.getReferenceById(id);
 
         if (existingClient != null) {
-            existingClient.setNome(client.getNome());
+            existingClient.setName(client.getName());
 
             Client savedClient = clientRepository.save(existingClient);
 
@@ -73,12 +73,12 @@ public class clientController {
         }
     }
 
-    @PutMapping("/{id}/senha")
+    @PutMapping("/{id}/password")
     public ResponseEntity<Client> updateSenhaClient(@PathVariable Long id, @RequestBody Client client){
         Client existingClient = clientRepository.getReferenceById(id);
 
         if (existingClient != null) {
-            existingClient.setSenha(client.getSenha());
+            existingClient.setPassword(client.getPassword());
 
             Client savedClient = clientRepository.save(existingClient);
 
@@ -89,12 +89,12 @@ public class clientController {
         }
     }
 
-    @PutMapping("/{id}/telefone1")
+    @PutMapping("/{id}/phone1")
     public ResponseEntity<Client> updateTelefone1Client(@PathVariable Long id, @RequestBody Client client){
         Client existingClient = clientRepository.getReferenceById(id);
 
         if (existingClient != null) {
-            existingClient.setTelefone1(client.getTelefone1());
+            existingClient.setPhone1(client.getPhone1());
 
             Client savedClient = clientRepository.save(existingClient);
 
@@ -105,12 +105,12 @@ public class clientController {
         }
     }
 
-    @PutMapping("/{id}/telefone2")
+    @PutMapping("/{id}/phone2")
     public ResponseEntity<Client> updateTelefone2Client(@PathVariable Long id, @RequestBody Client client){
         Client existingClient = clientRepository.getReferenceById(id);
 
         if (existingClient != null) {
-            existingClient.setTelefone2(client.getTelefone2());
+            existingClient.setPhone2(client.getPhone2());
 
             Client savedClient = clientRepository.save(existingClient);
 
@@ -121,12 +121,12 @@ public class clientController {
         }
     }
 
-    @PutMapping("/{id}/dataNascimento")
+    @PutMapping("/{id}/bornDate")
     public ResponseEntity<Client> updateDataNascimentoClient(@PathVariable Long id, @RequestBody Client client){
         Client existingClient = clientRepository.getReferenceById(id);
 
         if (existingClient != null) {
-            existingClient.setData_nascimento(client.getData_nascimento());
+            existingClient.setBorn_date(client.getBorn_date());
 
             Client savedClient = clientRepository.save(existingClient);
 
